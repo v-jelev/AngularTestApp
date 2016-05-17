@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    ### Redirect all other requests to index.html page if not file or dir
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !(jpg|png|gif|js|map|html|htm)$
+    RewriteRule ^(.*)$ index.html [QSA,L]
+</IfModule>

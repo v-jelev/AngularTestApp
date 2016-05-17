@@ -7,7 +7,7 @@ var config = {
         app: './app/app.js'
     },
     output:  {
-        path:     __dirname + '/dist/',
+        path:     __dirname + '/',
         filename: 'bundle.js'
     },
     resolve: {
