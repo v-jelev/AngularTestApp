@@ -1,0 +1,35 @@
+<div class="col-xs-8 col-xs-offset-2" data-ng-if="$ctrl.book">
+    <h1>{{ $ctrl.book._id? 'Editing' : 'Adding' }} Book</h1>
+    <form data-ng-submit="$ctrl.save()" name="formCtrl">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text"
+                   class="form-control"
+                   data-ng-model="$ctrl.book.title"
+                   placeholder="Title"
+                   required>
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <input type="text"
+                   class="form-control"
+                   data-ng-model="$ctrl.book.author"
+                   placeholder="Author"
+                   required>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control"
+                      rows="5"
+                      data-ng-model="$ctrl.book.description"
+                      placeholder="Description">
+            </textarea>
+        </div>
+
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-success pull-right col-xs-12">Submit</button>
+            <br><hr style="margin-bottom: 5px">
+            <a data-ui-sref="Books">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="col-xs-8 col-xs-offset-2">
+    <h1>
+        Books ({{ $ctrl.books.length || 0 }})
+        <a class="small" data-ui-sref="Books.add" style="color: orange;">
+            <span class="glyphicon glyphicon-plus"></span> Add
+        </a>
+    </h1>
+
+    <table class="table table-striped" data-ng-if="!$ctrl.loading">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tr data-ng-repeat="book in $ctrl.books">
+            <td>{{ book.title || '-' }}</td>
+            <td>{{ book.author || '-' }}</td>
+            <td>{{ (book.description | truncate: 100) || '-' }}</td>
+            <td class="text-center">
+                <a href="javascript:"
+                   class="btn btn-danger btn-xs"
+                   data-ng-click="$ctrl.remove(book, $index)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+                <a href="javascript:"
+                   class="btn btn-primary btn-xs"
+                   data-ui-sref="Books.edit({id: book._id})"
+                   data-ng-click="$ctrl.edit(book)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </td>
+        </tr>
+        <tr data-ng-if="!$ctrl.books.length">
+            <td colspan="4" class="text-center">
+                <h2>No books in database. You can <a data-ui-sref="Books.add">add</a> few...</h2>
+            </td>
+        </tr>
+    </table>
+</div>
